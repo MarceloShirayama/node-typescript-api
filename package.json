@@ -6,6 +6,8 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node dist/index.js",
+    "lint": "eslint ./src ./test --ext .ts",
+    "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
