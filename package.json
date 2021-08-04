@@ -9,7 +9,8 @@
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "dev": "ts-node-dev src/index.ts",
-    "test:functional": "jest --projects ./test --runInBand --watch"
+    "test:functional": "jest --projects ./test --runInBand --watch",
+    "test:unit": "jest --watch"
   },
   "keywords": [
     "nodejs",
@@ -38,7 +39,10 @@
   },
   "dependencies": {
     "@overnightjs/core": "^1.7.6",
+    "@types/axios": "^0.14.0",
     "@types/node": "^13.13.2",
+    "axios": "^0.21.1",
+    "D": "^1.0.0",
     "express": "^4.17.1",
     "module-alias": "^2.2.2"
   }
