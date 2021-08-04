@@ -5,29 +5,29 @@ export type StormGlassPointSource = {
 }
 
 export type StormGlassPoint = {
-  readonly time: string;
-  readonly waveHeight: StormGlassPointSource;
-  readonly waveDirection: StormGlassPointSource;
-  readonly swellHeight: StormGlassPointSource;
-  readonly swellDirection: StormGlassPointSource;
-  readonly swellPeriod: StormGlassPointSource;
-  readonly windDirection: StormGlassPointSource;
-  readonly windSpeed: StormGlassPointSource;
+  readonly time: string
+  readonly waveHeight: StormGlassPointSource
+  readonly waveDirection: StormGlassPointSource
+  readonly swellHeight: StormGlassPointSource
+  readonly swellDirection: StormGlassPointSource
+  readonly swellPeriod: StormGlassPointSource
+  readonly windDirection: StormGlassPointSource
+  readonly windSpeed: StormGlassPointSource
 }
 
 export type StormGlassForecastResponse = {
-  hours: StormGlassPoint[];
+  hours: StormGlassPoint[]
 }
 
 export type ForecastPoint = {
-  readonly time: string;
-  readonly waveHeight: number;
-  readonly waveDirection: number;
-  readonly swellHeight: number;
-  readonly swellDirection: number;
-  readonly swellPeriod: number;
-  readonly windDirection: number;
-  readonly windSpeed: number;
+  readonly time: string
+  readonly waveHeight: number
+  readonly waveDirection: number
+  readonly swellHeight: number
+  readonly swellDirection: number
+  readonly swellPeriod: number
+  readonly windDirection: number
+  readonly windSpeed: number
 }
 
 export class StormGlass {
