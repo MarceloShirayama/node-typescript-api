@@ -1,3 +1,4 @@
+import { InternalError } from '@src/util/errors'
 import { AxiosStatic } from 'axios'
 
 export type StormGlassPointSource = {
@@ -28,6 +29,14 @@ export type ForecastPoint = {
   readonly swellPeriod: number
   readonly windDirection: number
   readonly windSpeed: number
+}
+
+export class ClientRequestError extends InternalError {
+  constructor (message: string) {
+    const internalMessage =
+      'Unexpected error when trying to communicate to StormGlass'
+    super(`${internalMessage}: ${message}`)
+  }
 }
 
 export class StormGlass {
@@ -65,9 +74,7 @@ export class StormGlass {
       )
       return this.normalizeResponse((response.data))
     } catch (error) {
-      throw new Error(
-        `Unexpected error when trying to communicate to StormGlass: ${error.message}`
-      )
+      throw new ClientRequestError(error.message)
     }
   }
 

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { StormGlass } from '@src/clients/stormGlass'
+import { ClientRequestError, StormGlass } from '@src/clients/stormGlass'
 import {
   stormglassWeather3Hours, stormglassNormalizedResponse3Hours
 } from '@test/fixtures'
@@ -49,7 +49,7 @@ describe('StormGlass client', () => {
     mockedAxios.get.mockRejectedValue({ message: 'Network Error' })
     const stormGlass = new StormGlass(mockedAxios)
     await expect(stormGlass.fetchPoints(lat, lng)).rejects.toThrow(
-      'Unexpected error when trying to communicate to StormGlass: Network Error'
+      new ClientRequestError('Network Error')
     )
   })
 })
