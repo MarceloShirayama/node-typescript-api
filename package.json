@@ -9,8 +9,10 @@
     "lint": "eslint ./src ./test --ext .ts",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "dev": "ts-node-dev src/index.ts",
+    "test": "jest --colors",
     "test:functional": "jest --projects ./test --runInBand --watch",
-    "test:unit": "jest --watch"
+    "test:unit": "jest --watch",
+    "test:ci": "npm test -- --coverage --silent"
   },
   "keywords": [
     "nodejs",

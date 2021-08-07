@@ -5,6 +5,8 @@ module.exports = {
   displayName: 'root-tests',
   testMatch: ['<rootDir>/src/**/*.test.ts'],
   testEnvironment: 'node',
+  coverageDirectory: 'coverage',
+  collectCoverageFrom: ['**/src/**/*.ts'],
   clearMocks: true,
   preset: 'ts-jest',
   moduleNameMapper: {
