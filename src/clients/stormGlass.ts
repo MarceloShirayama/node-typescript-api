@@ -39,6 +39,14 @@ export class ClientRequestError extends InternalError {
   }
 }
 
+export class StormGlassResponseError extends InternalError {
+  constructor (message: string) {
+    const internalMessage =
+      'Unexpected error returned by the StormGlass service'
+    super(`${internalMessage}: ${message}`)
+  }
+}
+
 export class StormGlass {
   protected request: AxiosStatic
 
@@ -74,6 +82,12 @@ export class StormGlass {
       )
       return this.normalizeResponse((response.data))
     } catch (error) {
+      if (error.response && error.response.status) {
+        throw new StormGlassResponseError(
+          `Error: ${JSON.stringify(error.response.data)} Code: ${
+            error.response.status}`
+        )
+      }
       throw new ClientRequestError(error.message)
     }
   }
